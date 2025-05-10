@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Installation Calculator</title>
+    <link rel="stylesheet" href="web_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Solar Panel Installation Calculator</h1>
+        
+        <!-- Step 1: Appliance Input -->
+        <section id="appliance-input">
+            <h2>Step 1: Enter Your Appliances</h2>
+            <div class="form-group">
+                <label for="appliance-name">Appliance Name</label>
+                <input type="text" id="appliance-name" placeholder="e.g., Fan, Light, AC">
+            </div>
+            <div class="form-group">
+                <label for="wattage">Wattage (W)</label>
+                <input type="number" id="wattage" placeholder="e.g., 50">
+            </div>
+            <div class="form-group">
+                <label for="hours">Hours Used Per Day</label>
+                <input type="number" id="hours" placeholder="e.g., 8">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+            <button id="add-appliance">Add Appliance</button>
+            
+            <h3>Your Appliances</h3>
+            <table id="appliance-table">
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>Wattage (W)</th>
+                        <th>Hours/Day</th>
+                        <th>Quantity</th>
+                        <th>Daily Usage (Wh)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appliance-list"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><strong>Total Daily Consumption:</strong></td>
+                        <td id="total-consumption">0 Wh</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <button id="calculate-solar" class="hidden">Calculate Solar Requirements</button>
+        </section>
+        
+        <!-- Step 2: Solar Panel Calculation -->
+        <section id="solar-results" class="hidden results-section">
+            <h2>Solar Panel Requirements</h2>
+            <div id="solar-calculation-results"></div>
+        </section>
+        
+        <!-- Step 3: Economic Analysis -->
+        <section id="economic-input" class="hidden">
+            <h2>Economic Analysis</h2>
+            <div class="form-group">
+                <label for="module-cost">Cost per Solar Module (₹)</label>
+                <input type="number" id="module-cost" value="10500">
+            </div>
+            <div class="form-group">
+                <label for="battery-count">Number of Batteries Needed</label>
+                <input type="number" id="battery-count" value="2" min="0">
+            </div>
+            <div class="form-group">
+                <label for="inverter-cost">Inverter Cost (₹)</label>
+                <input type="number" id="inverter-cost" value="35000">
+            </div>
+            <div class="form-group">
+                <label for="installation-cost">Installation Cost (₹)</label>
+                <input type="number" id="installation-cost" value="30000">
+            </div>
+            <div class="form-group">
+                <label for="electricity-rate">Current Electricity Cost (₹/kWh)</label>
+                <input type="number" id="electricity-rate" value="6.5" step="0.1">
+            </div>
+            <button id="calculate-economic">Calculate Economic Analysis</button>
+        </section>
+        
+        <!-- Economic Results -->
+        <section id="economic-results" class="hidden results-section">
+            <h2>Economic Analysis Results</h2>
+            <div id="economic-calculation-results"></div>
+        </section>
+    </div>
+
+    <script src="web_script.js"></script>
+</body>
+</html>
