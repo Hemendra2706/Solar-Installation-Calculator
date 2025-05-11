@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Calculator</title>
+    <link rel="stylesheet" href="web_style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showPage('intro-page')">Home</button>
+            <button class="tab-btn" onclick="showPage('calculator-page')">Calculator</button>
+            <button class="tab-btn" onclick="showPage('results-page')" id="results-tab">Results</button>
+        </div>
+
+        <!-- Intro Page -->
+        <div id="intro-page" class="page">
+            <h1>Solar Installation Calculator</h1>
+            <div class="hero">
+                <h2>Calculate Your Solar Needs</h2>
+                <p>Get accurate estimates for panels, costs, and savings</p>
+                <button onclick="showPage('calculator-page')">Start Calculation</button>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Energy Audit</h3>
+                    <p>Calculate your exact power consumption from appliances</p>
+                </div>
+                <div class="feature-card">
+                    <h3>System Design</h3>
+                    <p>Get panel count, string configuration, and battery needs</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Financial Analysis</h3>
+                    <p>LCOE, payback period, and lifetime savings</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Page -->
+        <div id="calculator-page" class="page hidden">
+            <h1>Solar Panel Calculator</h1>
+            
+            <div class="form-section">
+                <h2>Step 1: Enter Your Appliances</h2>
+                <div class="form-group">
+                    <label for="appliance-name">Appliance Name</label>
+                    <input type="text" id="appliance-name" placeholder="e.g., Fan, Light, AC">
+                </div>
+                <div class="form-group">
+                    <label for="wattage">Wattage (W)</label>
+                    <input type="number" id="wattage" placeholder="e.g., 50">
+                </div>
+                <div class="form-group">
+                    <label for="hours">Hours Used Per Day</label>
+                    <input type="number" id="hours" placeholder="e.g., 8">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" value="1" min="1">
+                </div>
+                <button id="add-appliance">Add Appliance</button>
+            </div>
+
+            <div class="appliance-list">
+                <h3>Your Appliances</h3>
+                <table id="appliance-table">
+                    <thead>
+                        <tr>
+                            <th>Appliance</th>
+                            <th>Wattage (W)</th>
+                            <th>Hours/Day</th>
+                            <th>Quantity</th>
+                            <th>Daily Usage (Wh)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appliance-list"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4"><strong>Total Daily Consumption:</strong></td>
+                            <td id="total-consumption">0 Wh</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="solar-options hidden" id="solar-options">
+                <h2>Step 2: Solar Configuration</h2>
+                <!-- Solar options form here -->
+            </div>
+
+            <button id="calculate-btn" class="hidden">Calculate Solar Requirements</button>
+        </div>
+
+        <!-- Results Page -->
+        <div id="results-page" class="page hidden">
+            <h1>Your Solar Report</h1>
+            <div class="results-container" id="results-container">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+            <button onclick="window.print()">Print Report</button>
+            <button onclick="showPage('calculator-page')">New Calculation</button>
+        </div>
+    </div>
+
+    <script src="web_script.js"></script>
+</body>
+</html>
